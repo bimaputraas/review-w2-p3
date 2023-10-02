@@ -19,10 +19,10 @@ func main() {
 	srv := grpc.NewServer()
 
 	// repository product
-	productRepository := repository.NewProductRepository(db)
+	repository := repository.NewMongoDBRepository(db)
 
 	// server product
-	productServer := server.NewProductsServer(productRepository)
+	productServer := server.NewProductsServer(repository)
 	PORT := ":50051"
 
 	// register product service server

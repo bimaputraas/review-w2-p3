@@ -7,9 +7,9 @@ import (
 
 type ProductServer struct {
 	pb.UnimplementedProductServiceServer
-	Repository repository.ProductRepository
+	Repository repository.Repository
 }
 
-func NewProductsServer(r repository.ProductRepository) ProductServer {
+func NewProductsServer(r repository.Repository) ProductServer {
 	return ProductServer{Repository: r}
 }

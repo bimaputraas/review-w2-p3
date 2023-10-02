@@ -7,7 +7,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func (r ProductRepository) CreateProduct(product model.Product) (model.Product, error) {
+func (r MongoDBRepository) CreateProduct(product model.Product) (model.Product, error) {
 	// get coll
 	result,err := r.DB.Collection("products").InsertOne(context.Background(),product)
 	if err != nil {
@@ -18,3 +18,20 @@ func (r ProductRepository) CreateProduct(product model.Product) (model.Product, 
 	product.ID = result.InsertedID.(primitive.ObjectID)
 	return product, nil
 }
+
+func (r MongoDBRepository)FindProducts() ([]model.Product, error){
+	return nil,nil
+}
+
+func (r MongoDBRepository)FindProductById(int) (model.Product, error){
+	return model.Product{},nil
+}
+
+func (r MongoDBRepository)UpdateProductById(int, model.Product) (model.Product, error){
+	return model.Product{},nil
+}
+
+func (r MongoDBRepository)DeleteProductById(int) (model.Product, error){
+	return model.Product{},nil
+}
+
