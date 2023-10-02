@@ -19,7 +19,7 @@ func main() {
 	srv := grpc.NewServer()
 
 	// repository product
-	repository := repository.NewMongoDBRepository(db)
+	repository := repository.NewMongoDbRepository(db)
 
 	// server product
 	productServer := server.NewProductsServer(repository)

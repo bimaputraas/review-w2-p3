@@ -2,10 +2,11 @@ package repository
 
 import "go.mongodb.org/mongo-driver/mongo"
 
-type MongoDBRepository struct {
-	DB *mongo.Database
+// mongodb repository
+type mongodb struct {
+	db *mongo.Database
 }
 
-func NewMongoDBRepository(db *mongo.Database) Repository {
-	return MongoDBRepository{DB: db}
+func NewMongoDbRepository(Db *mongo.Database) Repository {
+	return &mongodb{db: Db}
 }

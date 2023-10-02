@@ -7,9 +7,9 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func (r MongoDBRepository) CreateProduct(product model.Product) (model.Product, error) {
+func (r *mongodb) CreateProduct(product model.Product) (model.Product, error) {
 	// get coll
-	result,err := r.DB.Collection("products").InsertOne(context.Background(),product)
+	result,err := r.db.Collection("products").InsertOne(context.Background(),product)
 	if err != nil {
 		return model.Product{},err
 	}
@@ -19,19 +19,19 @@ func (r MongoDBRepository) CreateProduct(product model.Product) (model.Product, 
 	return product, nil
 }
 
-func (r MongoDBRepository)FindProducts() ([]model.Product, error){
+func (r *mongodb) FindProducts() ([]model.Product, error){
 	return nil,nil
 }
 
-func (r MongoDBRepository)FindProductById(int) (model.Product, error){
+func (r *mongodb) FindProductById(int) (model.Product, error){
 	return model.Product{},nil
 }
 
-func (r MongoDBRepository)UpdateProductById(int, model.Product) (model.Product, error){
+func (r *mongodb) UpdateProductById(int, model.Product) (model.Product, error){
 	return model.Product{},nil
 }
 
-func (r MongoDBRepository)DeleteProductById(int) (model.Product, error){
+func (r *mongodb) DeleteProductById(int) (model.Product, error){
 	return model.Product{},nil
 }
 
